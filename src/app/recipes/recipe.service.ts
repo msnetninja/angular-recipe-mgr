@@ -1,12 +1,29 @@
 import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
+import { Ingredient } from "../shared/ingredient.model";
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'This is a simple test', 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1id6na.img'),
-    new Recipe('Another recipe', 'copy/paste the same image', 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1id6na.img')
+    new Recipe(
+      'Gallo Pinto',
+      'Lorem ipsum dolor sit amet, consectetur.',
+      'https://www.pcrm.org/sites/default/files/gallo-pinto-10.jpg',
+      [
+        new Ingredient('Rice', 1),
+        new Ingredient('Beans', 1),
+        new Ingredient('Eggs', 2)
+      ]),
+    new Recipe(
+      'Fish & Chips',
+      'Lorem ipsum dolor sit amet.',
+      'https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2023/08/fish-and-chi-1200x675.jpg',
+      [
+        new Ingredient('Fish', 1),
+        new Ingredient('Potatoes', 3),
+        new Ingredient('Salt', 1)
+      ])
   ];
 
   getRecipes() {
